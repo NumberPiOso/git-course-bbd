@@ -1,12 +1,5 @@
 ## Curso sistemas de versionamiento (git) BBD
 
-### Links clases (Onedrive)
-
-- [Primera clase](url.com)
-- [Segunda clase](url2.com)
-
-
-### Referencias
 
 - [Explicacion]({{ site.baseurl }}{% link explicacion.md %})
 - [Cheatsheet]({{ site.baseurl }}{% link cheatsheet.md %})
@@ -14,6 +7,10 @@
 - [Ejercicios_avanzados]({{ site.baseurl }}{% link avanzados.md %})
 
 
+### Links clases (Onedrive)
+
+- [Primera clase](url.com)
+- [Segunda clase](url2.com)
 
 <!-- ```markdown
 Syntax highlighted code block
