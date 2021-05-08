@@ -1,3 +1,3 @@
 Para ingresar a la página ir al siguiente link.
 
-https://numberpioso.github.io/git-course-bbd/
+https://bbd-provisional.github.io/git-course/
