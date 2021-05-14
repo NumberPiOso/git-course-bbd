@@ -1,3 +1,12 @@
+
+<style type="text/css">
+  .center-image
+    {
+        margin: 0 auto;
+        display: block;
+    }
+</style>
+
 # Explicacion
 
 Los sistemas de control de versiones *VCS* (por sus siglas en inglés)
@@ -8,7 +17,7 @@ código. Esto sin tener que recurrir a copias innecesarias de archivos tipo
 "*proyecto.txt*", "*proyecto1.txt*", "*proyectofinal.txt*", 
 "*proyectofinalestesi.txt*" ...
 
-![](imgs/drake.jpeg)
+![](imgs/drake.jpeg){: .center-image }
 
 ¿Por qué se considera tan valioso? Cuando se está trabajando solo se guardan
 *capturas* del proyecto, guardando una serie de notas de por qué se hicieron 
@@ -23,7 +32,7 @@ Git es conocido por lo dificl que es aprenderlo, pero sus conceptos más básico
 son hermosos y puede ser fácilmente entendido. Por eso es importante entender
 los comandos y no utilizarlos como magia negra. Como revela el siguiente meme.
 
-![](imgs/how_works.png)
+![](imgs/how_works.png){: .center-image }
 
 ```bash
 git add ...
