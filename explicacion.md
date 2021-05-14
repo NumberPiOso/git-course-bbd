@@ -34,7 +34,51 @@ los comandos y no utilizarlos como magia negra. Como revela el siguiente meme.
 
 ![](imgs/how_works.png){: .center-image }
 
-```bash
-git add ...
-git commit ...
+
+## Configuracion por primera vez
+
+Una vez teniendo git en nuestro computador. Hay que hacer unas pocas
+cosas para configurarlo. En general usaremos el comando _git config_
+para hacer esto. Las variables de entorno se encuentran en 3 diferentes
+niveles.
+- `[path]/etc/gitconfig` (`$HOME/.gitconfig` en Windows):
+        Variables del sistema, en general no quisieramos tocar este.
+- `~/.gitconfig` o `~/.config/git/config`: Variables de usuario.
+- `config` archivo que está en cada repositorio git en la ruta `.git/config`.
+
+Puedes ver tus configuraciones y de que ruta vienen utilizando el comando
+```console
+git config --list --show-origin
+```
+
+### Configuraciones básicas
+
+#### Identidad
+Git necesita usar un nombre y correo para hacer los commits. Se configuran
+para el sistema de la siguiente manera.
+
+```console
+git config --global user.name "Pablo Osorio"
+git config --global user.email pablo.osorio@bigbangdata.com.co
+```
+
+Y si por ejemplo, yo quisiese utilizar un correo diferente para un proyecto
+en particular, me puedo meter a la carpeta de ese proyecto y correr los mismos
+comandos sin `--global`. Esto sería:
+
+```console
+git config user.email pablo.osorio@empresa.com
+```
+
+Donde este correo solo se utilizaría para este proyecto y para el resto
+seguiría usando el predefinido en global.
+
+#### Editor de texto
+Git necesita usar un editor de texto para escribir los mensajes.
+Entre los más comunes están _notepad_ (recomendado para iniciar),
+_code_ (vscode), _vim_, _emacs_.
+
+Basta con el siguiente comando
+```console
+git config --global core.editor notepad
 ```
