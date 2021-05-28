@@ -8,10 +8,7 @@
 </style>
 
 # Explicacion
-o <-- o <-- o <-- o <---- o
-            ^            /
-             \          v
-              --- o <-- o
+
 Los sistemas de control de versiones *VCS* (por sus siglas en inglés)
 son herramientas que facilitan hacer un seguimiento sobre cambios
 "*proyecto.txt*", "*proyecto1.txt*", "*proyectofinal.txt*", 
@@ -26,13 +23,19 @@ y más. Pero son especialmente importantes cuando se trabajan con múltiples
 personas, permitiendo escribir la historia de código entre todos, ver 
 sencillamente los cambios de los otros y resolver conflictos cuando dos
 usuarios están cambiando las mismas lineas de un archivo.  
-o <-- o <-- o <-- o <---- o
-            ^            /
-             \          v
-              --- o <-- o
 Aunque existen múltiples *VCS*, Git es el más usado actualmente. Sin embargo, 
 Git es conocido por lo dificl que es aprenderlo, pero sus conceptos más básicos
+
 ![](imgs/how_works.png){: .center-image }
+
+Entonces git es un sistema de versionamiento de versiones, ¿pero es lo mismo
+que *GitHub*, absolutamente NO. Git es un programa que se instala dentro de tu
+computador (no en la nube). GitHub es un _hosting_ de repositorios git,
+es decir, si bien nosotros decidimos guardar una copia de nuestro repositorio
+git en GitHub, también podríamos utilizar cualquier otro servicio como 
+BitBucket, GitLab, o hasta
+[crear uno privado](https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols)
+con nuestros propios protocolos de seguridad en la organización.
 
 ## Conceptos
 
@@ -139,3 +142,15 @@ Basta con el siguiente comando
 ```console
 git config --global core.editor notepad
 ```
+
+
+### Crear repositorio (git)
+En git, tu carpeta de archivos incluyendo toda su historia y configuraciones
+se llama repositorio. Para crear un respositorio hay que seguir los siguientes
+pasos:
+
+- Ve al directorio donde quieras guardar el proyecto.
+- Escribe en la consola `git init`.
+- `git add <nombre archivo>` para incluir en el repositorio los archivos que queremos.
+- `git commit` y se escribe un mensaje normalmente como `first commit` o
+  algo describiendo el trabajo hecho.
