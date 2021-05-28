@@ -154,3 +154,46 @@ pasos:
 - `git add <nombre archivo>` para incluir en el repositorio los archivos que queremos.
 - `git commit` y se escribe un mensaje normalmente como `first commit` o
   algo describiendo el trabajo hecho.
+
+
+### .gitignore
+
+El archivo `.gitignore`, es un archivo de texto que le dice a Git qué archivos
+o carpetas ignorar en un proyecto.  
+
+Tiene ciertos carácteres especiales utiles de conocer
+- `*` se utiliza como una coincidencia comodín.
+- `/` se usa para ignorar las rutas relativas al archivo .gitignore.
+- `#` Comentarios
+
+Es importante incluir archivos que no sean código acá, por ejemplo, imágenes
+generadas por código, copias de seguridad creadas por nuestro editor de texto,
+resultados generados de correr un script o datos sensibles.
+Como una "regla de dedo" podemos tener la regla de que si no es código o texto,
+probablemente no debería ir en el repositorio git.  
+
+Github propone unos genéricos cuando vamos a crear un proyecto y a la gente
+también le gusta publicar algunos que van mejorando en la web
+
+
+```console
+
+# Carpetas con archivos de datos
+data/
+
+# Ignorar archivos creados por Jupyter
+.ipynb_checkpoints
+
+# Sphinx documentation
+docs/_build/
+
+# Configuraciones editories
+.vscode/
+.idea/
+
+# Ignorar todos los archivos .csv
+*.csv
+```
+
+
+
