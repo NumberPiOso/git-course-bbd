@@ -29,7 +29,7 @@ usuarios están cambiando las mismas lineas de un archivo.
 
 Aunque existen múltiples *VCS*, Git es el más usado actualmente. Sin embargo, 
 Git es conocido por lo dificl que es aprenderlo, pero sus conceptos más básicos
-son hermosos y puede ser fácilmente entendido. Por eso es importante entender
+son hermosos y pueden ser fácilmente entendidos. Por eso es importante entender
 los comandos y no utilizarlos como magia negra. Como revela el siguiente meme.
 
 ![](imgs/how_works.png){: .center-image }
