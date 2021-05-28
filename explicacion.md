@@ -8,12 +8,12 @@
 </style>
 
 # Explicacion
-
+o <-- o <-- o <-- o <---- o
+            ^            /
+             \          v
+              --- o <-- o
 Los sistemas de control de versiones *VCS* (por sus siglas en inglés)
 son herramientas que facilitan hacer un seguimiento sobre cambios
-en los archivos. Por ejemplo, cuando se editó un archivo, quién
-lo hizo, cuál fue la razón y nos permiten volver a versiones anteriores de
-código. Esto sin tener que recurrir a copias innecesarias de archivos tipo 
 "*proyecto.txt*", "*proyecto1.txt*", "*proyectofinal.txt*", 
 "*proyectofinalestesi.txt*" ...
 
@@ -26,13 +26,70 @@ y más. Pero son especialmente importantes cuando se trabajan con múltiples
 personas, permitiendo escribir la historia de código entre todos, ver 
 sencillamente los cambios de los otros y resolver conflictos cuando dos
 usuarios están cambiando las mismas lineas de un archivo.  
-
+o <-- o <-- o <-- o <---- o
+            ^            /
+             \          v
+              --- o <-- o
 Aunque existen múltiples *VCS*, Git es el más usado actualmente. Sin embargo, 
 Git es conocido por lo dificl que es aprenderlo, pero sus conceptos más básicos
-son hermosos y pueden ser fácilmente entendidos. Por eso es importante entender
-los comandos y no utilizarlos como magia negra. Como revela el siguiente meme.
-
 ![](imgs/how_works.png){: .center-image }
+
+## Conceptos
+
+Git modela la historia de una colección de carpetas y archivos como una serie
+de Snapshots (instantáneas) en git llamados **commit**.
+En terminología Git, un archivo es un **blob**
+y son simplemente bytes. Un directorio se conoce como **tree** y en su definición
+incluye referencias a blobs o a otros trees.  En la siguiente figura se muestra un
+ejemplo.
+
+```console
+<root> (tree)
+|
++- foo (tree)
+|  |
+|  + bar.txt (blob)
+|
++- baz.txt (blob)
+```
+
+### Commits
+
+Una manera relativamente sencilla e ingenua de modelar los snapshots sería una historia lineal.
+Gráficamente sería algo así:
+
+```console
+A1 <-- A2 <-- A3 <-- A4
+```
+
+En este diagrama, las `A#` representan los commits, y la flecha apunta al commit anterior,
+es decir, el commit más a la derecha es el último y el commit anterior
+(que a veces se llama padre) es el que esta consecutivamente a su izquierda.  
+Pero en git, un commit no está limitado a contener un solo padre, puede tener
+múltiples esto representaría trabajar bajo dos tareas en paralelo y después
+unir su trabajo. Algo así:
+
+```console
+A1 <-- A2 <-- A3 <-- A3B2
+       ^             /
+        \           v
+        B1  <----  B2
+```
+
+En git los commits son inmutables. Esto no significa que los errores
+no se puedan borrar de la historia, simplemente que editarlos implicaría
+crear nuevos commits. 
+
+### Referencias
+
+Para git, todos los objetos (**commit**, **blob**, **tree**) están
+referenciados por su [SHA-1](https://en.wikipedia.org/wiki/SHA-1)
+esto puede ser estorboso, ya que los seres humanos no son buenos memorizando
+40 carácteres hexadecimales. Por esto, se crean las referencias, las
+referencias se hacen a los commits, entre las más generales están
+`main` antes llamada `master`, que suele representar el último commit
+del código "estable". También a modo de ejemplo, podemos ver la
+referencia al commit actual, llamada `HEAD`.
 
 
 ## Configuracion por primera vez
