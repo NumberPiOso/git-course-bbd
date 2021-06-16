@@ -197,3 +197,38 @@ docs/_build/
 
 
 
+### Working directory-Staging Area-Repository
+
+¿Tendría sentido que cada vez que hagamos commit, git guardara
+todo los archivos con cambios que tenemos en nuestra carpeta e hiciera
+el commit con estos? Algunos sistemas de versionamiento funcionan así
+pero no git. En git queremos commit _limpios_ y esto no siempre
+es alcanzable haciendo commit  de toda la carpeta. Por dar un ejemplo,
+pensemos en el caso en el que implementemos dos funciones, una ya funcional
+y otra que aún contiene ciertas fallas, solamente quisieramos guardar en un
+nuevo commit el avance en la que ya funciona y probablemente hacer otro commit
+con la otra cuando ya este terminada. La manera de git de acomodarse a estos
+casos es mediante la staging area.  
+
+En git tenemos 3 diferentes zonas de trabajo _working directory_, _staging area_ y _repository_.
+Por regla general, _working directory_ es el estado actual de mi directorio,
+con todos los cambios nuevos (incluyendo a los cuales aún no he hecho commit).
+El _staging area_ representa los archivos a los cuales planeo agregar en mi siguiente commit y
+_repository_ es el repositorio donde solamente se guarda la información a la cuál se le hizo commit.  
+
+Entonces imagenemos el caso anteriormente descrito, para yo solamente hacer un commit sobre un
+archivo (funcion_1.py) puedo hacer lo siguiente:
+
+```console
+git add funcion_1.py
+```
+
+En este caso, ya la función 1 estaría en mi _staging area_ y para guardar estos cambios en el
+repositorio, simplemente haría:
+
+```console
+git commit -m "Implementa funcion 1"
+```
+Entonces ya estos cambios estarían guardados en el repositorio.
+
+![](imgs/staging_area.png){: .center-image }
