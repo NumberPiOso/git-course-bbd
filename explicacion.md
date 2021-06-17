@@ -232,3 +232,49 @@ git commit -m "Implementa funcion 1"
 Entonces ya estos cambios estarían guardados en el repositorio.
 
 ![](imgs/staging_area.png){: .center-image }
+
+### git reset
+
+Git reset es una herramienta que nos permite deshacer cambios.
+Aunque muy potente, su uso puede ser confuso y es peligroso no usarla
+correctamente. El comando reset funciona para mover una rama
+hacia otro commit en particular. Sin embargo, tiene 3 maneras de hacerlo 
+`--soft`, `--mixed` y `--hard`.
+
+**--soft** cambia la referencia de la rama a otro commit, pero dejá los archivos
+el _working directory_ y _stage area_ sin tocar. Es decir, todo queda como el momento
+justo antes de hacer el commit, sin necesidad de hacer `git add`.
+**--mixed** es la opción por defecto, tampoco cambia el _working directory_ por lo que
+no veremos cambios en los archivos, sin embargo, cambia el _stage area_ por lo que
+para decidir cuales cambios queremos conservar tendriamos que volver a añadir cambios
+por medio de `git add`. **--hard** PELIGRO, lo más directo y la más usada, se cambia tanto
+el _working directory_ como el _stage area_, es decir, los cambios que hicimos ya no se ven
+en los archivos y como el `reset` mueve la rama, ya no hay manera de volver a ver estos
+cambios.
+
+#### Ejemplo
+
+Supongamos que tengo el siguiente repositorio.
+
+A1 <-- A2 <-- A3 <--   A4
+                       ^
+                       |
+                      main
+
+y aplico el siguiente comando. En vez, de ser A#, toca referenciar el commit
+al que queremos ir
+por su SHA-1, o el nombre de alguna otra rama. Normalmente se usan los SHA-1,
+El SHA-1 es un alfanumérico de 40 caracteres de longitud
+(ejemplo `540c10349e03d332faf87bb352e87d6a943ed937`)
+
+```console
+git reset A3
+```
+El repositorio quedaría de la siguiente manera, pero NO habrían cambios en
+nuestros archivos (_working directory_) ni en  _staging area_.
+```console
+A1 <-- A2 <-- A3 <--   A4
+              ^
+              |
+            main
+```
